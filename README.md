@@ -21,18 +21,17 @@ Ansible role to setup Kali Linux.
 6. Put your pubkey in **/home/kali/.ssh/authorized_keys**.
 7. Run :
 
-	$ ./kali.yml --ask-become-pass
+```
+$ ./kali.yml --ask-become-pass
+```
 
 ## Issues
 
 1. Copy/paste not working.
 
-```
 Run `$ /home/kali/vmware-tools-fix.sh` from VMWare.
-```
 
 2. Shared folders are not mounted.
 
-```
 Run `$ /home/kali/mount-shared-folders.sh`.
-```
+
