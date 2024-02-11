@@ -1,0 +1,11 @@
+[Unit]
+Description = start noVNC service
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=kali
+ExecStart = /usr/share/novnc/utils/novnc_proxy --listen 8081 --vnc localhost:5901
+
+[Install]
+WantedBy=multi-user.target

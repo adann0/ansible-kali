@@ -1,0 +1,28 @@
+- name: Install virtualenv
+  pip:
+    name: virtualenv
+    executable: /home/kali/.pyenv/versions/2.7.18/bin/pip
+  become_user: kali
+  become: yes
+
+- name: Check if current venv2 directory exists
+  stat:
+    path: venv2
+  register: venv2_dir
+  become_user: kali
+  become: true
+
+- name: Create Python2 virtualenv
+  shell: .pyenv/versions/2.7.18/bin/python -m virtualenv venv2
+  become_user: kali
+  become: yes
+  when: not venv2_dir.stat.exists
+
+- name: Install Python2 Packages
+  pip:
+    name:
+      - requests
+      - mysql-connector
+    virtualenv: /home/kali/venv2
+  become_user: kali
+  become: yes

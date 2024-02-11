@@ -1,0 +1,81 @@
+- name: Add 32-bits dependencies for Shellter
+  lineinfile:
+    dest: /var/lib/dpkg/arch
+    line: i386
+    create: yes
+
+- name: Preseed kali-grant-root
+  debconf:
+    name: kali-grant-root
+    question: kali-grant-root/policy
+    value: enable
+    vtype: select
+  notify: dpkg-reconfigure kali-grant-root
+
+- name: Flush handlers
+  meta: flush_handlers
+
+- name: Set /etc/apt/sources.list
+  copy:
+    src: etc/apt/sources.list
+    dest: /etc/apt/sources.list
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Uninstall Apt Packages
+  ansible.builtin.apt:
+    state: absent
+    pkg:
+    - ntp
+
+- name: Install Apt Packages
+  ansible.builtin.apt:
+    pkg:
+    - apt-transport-https
+    - novnc
+    - tightvncserver
+    - autocutsel
+    - systemd-timesyncd
+    - python3-venv 
+    - arjun 
+    - crowbar 
+    - chisel 
+    - dnswalk 
+    - bloodhound 
+    - rsyslog 
+    - fail2ban 
+    - apache2 
+    - mingw-w64 
+    - peass 
+    - shellter 
+    - wine 
+    - ncat 
+    - xterm 
+    - htop 
+    - exploitdb 
+    - gobuster 
+    - seclists 
+    - golang-go 
+    - nodejs 
+    - build-essential 
+    - libssl-dev 
+    - zlib1g-dev 
+    - libbz2-dev 
+    - libreadline-dev 
+    - libsqlite3-dev 
+    - wget 
+    - curl 
+    - llvm 
+    - libncurses5-dev 
+    - libncursesw5-dev 
+    - xz-utils 
+    - tk-dev 
+    - libffi-dev 
+    - liblzma-dev 
+    - python3-openssl 
+    - git
+    - wine32
+    - kali-grant-root
+    - snmp-mibs-downloader
+    update_cache: yes

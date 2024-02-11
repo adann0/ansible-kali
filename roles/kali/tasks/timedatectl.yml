@@ -1,0 +1,11 @@
+- name: Set timezone to Europe/Paris
+  community.general.timezone:
+    name: Europe/Paris
+
+- name: Copy /etc/timezone
+  copy:
+    src: etc/timezone
+    dest: /etc/timezone
+    owner: root
+    group: root
+    mode: '0644'

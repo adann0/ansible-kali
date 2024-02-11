@@ -1,0 +1,21 @@
+- name: dpkg-reconfigure kali-grant-root
+  command: sudo dpkg-reconfigure -f noninteractive kali-grant-root
+
+- name: dpkg-reconfigure locales
+  command: sudo dpkg-reconfigure -f noninteractive locales
+
+- name: wait
+  ansible.builtin.pause:
+    seconds: 5
+
+- name: restart fail2ban
+  ansible.builtin.systemd_service:
+    state: restarted
+    name: fail2ban
+
+- name: daemon-reload
+  ansible.builtin.systemd_service:
+    daemon_reload: true
+
+- name: reboot
+  ansible.builtin.reboot:

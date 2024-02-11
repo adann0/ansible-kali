@@ -1,0 +1,10 @@
+- name: Set .zshrc
+  copy:
+    src: "{{ item.file }}"
+    dest: "/{{ item.file }}"
+    owner: "{{ item.owner }}"
+    group: "{{ item.owner }}"
+    mode: "0600"
+  with_items:
+    - { file: home/kali/.zshrc, owner: kali }
+    - { file: root/.zshrc, owner: root }

@@ -1,0 +1,2 @@
+[all]
+kali ansible_ssh_user=kali

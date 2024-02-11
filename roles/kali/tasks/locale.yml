@@ -1,0 +1,23 @@
+- name: Ensure locales fr_FR.UTF-8 exist
+  community.general.locale_gen:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items:
+    - { name: fr_FR.UTF-8, state: present }
+    - { name: en_US.UTF-8, state: absent }
+
+- name: Set default locale to fr_FR.UTF-8
+  ansible.builtin.debconf:
+    name: locales
+    question: locales/default_environment_locale
+    value: fr_FR.UTF-8
+    vtype: select
+  notify: dpkg-reconfigure locales
+
+- name: Set to generate locales
+  ansible.builtin.debconf:
+    name: locales
+    question: locales/locales_to_be_generated
+    value: fr_FR.UTF-8 UTF-8
+    vtype: multiselect
+  notify: dpkg-reconfigure locales

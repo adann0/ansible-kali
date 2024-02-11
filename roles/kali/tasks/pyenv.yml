@@ -1,0 +1,50 @@
+- name: Check if Pyenv is already installed
+  stat:
+    path: .pyenv
+  register: pyenv_dir
+  become_user: kali
+  become: true
+
+- name: Install pyenv
+  shell: curl https://pyenv.run | bash
+  register: result
+  become_user: kali
+  become: true
+  when: not pyenv_dir.stat.exists
+
+- name: Check if Python 2.7.18 is already installed with Pyenv
+  stat:
+    path: .pyenv/versions/2.7.18
+  register: python2_dir
+  become_user: kali
+  become: true
+
+- name: Install Python 2.7.18
+  command: .pyenv/bin/pyenv install 2.7.18
+  register: result
+  become_user: kali
+  become: true
+  when: not python2_dir.stat.exists
+
+- name: Check if current Pyenv Global version has already been set
+  stat:
+    path: .pyenv/version
+  register: pyenv_version_file
+  become_user: kali
+  become: true
+
+- name: Check if current Pyenv Global version is already set to 2.7.18
+  lineinfile: 
+    dest: .pyenv/version
+    line: "2.7.18"
+  check_mode: yes
+  register: pyenv_version
+  when: pyenv_version_file.stat.exists
+  become_user: kali
+  become: true
+
+- name: Set Python2 version to 2.7.18
+  command: .pyenv/bin/pyenv global 2.7.18
+  become_user: kali
+  become: true
+  when: (pyenv_version is defined and pyenv_version.changed) or (not pyenv_version_file.stat.exists)

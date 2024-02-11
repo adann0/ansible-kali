@@ -1,0 +1,10 @@
+- name: Copy scripts
+  copy:
+    src: "home/kali/{{ item }}"
+    dest: "/home/kali/{{ item }}"
+    owner: kali
+    group: kali
+    mode: '0700'
+  with_items:
+    - vmware-tools-fix.sh
+    - mount-shared-folders.sh

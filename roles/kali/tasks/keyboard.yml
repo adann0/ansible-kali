@@ -1,0 +1,8 @@
+- name: Set /etc/default/keyboard config file
+  copy:
+    src: etc/default/keyboard
+    dest: /etc/default/keyboard
+    owner: root
+    group: root
+    mode: '0644'
+  notify: reboot

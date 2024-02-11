@@ -1,0 +1,14 @@
+- name: Copy SSH fail2ban config file
+  copy:
+    src: etc/fail2ban/jail.d/custom.conf
+    dest: /etc/fail2ban/jail.d/custom.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: restart fail2ban
+
+- name: Enable & Start Fail2Ban
+  ansible.builtin.service:
+    name: fail2ban
+    state: started
+    enabled: yes

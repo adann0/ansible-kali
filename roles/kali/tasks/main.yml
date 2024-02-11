@@ -1,0 +1,12 @@
+- include_tasks: locale.yml
+- include_tasks: timedatectl.yml
+- include_tasks: apt.yml
+- include_tasks: home.yml
+- include_tasks: pyenv.yml
+- include_tasks: pip2.yml
+- include_tasks: pip3.yml
+- include_tasks: fail2ban.yml
+- include_tasks: snmp.yml
+- include_tasks: scripts.yml
+- include_tasks: keyboard.yml
+

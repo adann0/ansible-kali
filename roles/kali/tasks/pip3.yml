@@ -1,0 +1,14 @@
+- name: Create Python3 venv & Install Packages
+  pip:
+    name:
+      - requests
+      - mysql-connector
+      - dirhunt
+      - wsgidav
+      - cheroot
+      - paramiko
+      - impacket
+    virtualenv: /home/kali/venv3
+    virtualenv_python: python3
+  become_user: kali
+  become: yes
