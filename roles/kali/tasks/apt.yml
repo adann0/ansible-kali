@@ -43,6 +43,7 @@
     - chisel 
     - dnswalk 
     - bloodhound 
+    - bloodhound.py
     - rsyslog 
     - fail2ban 
     - apache2 
