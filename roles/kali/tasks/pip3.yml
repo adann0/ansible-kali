@@ -8,6 +8,7 @@
       - cheroot
       - paramiko
       - impacket
+      - kpcli
     virtualenv: /home/kali/venv3
     virtualenv_python: python3
   become_user: kali

@@ -1,0 +1,17 @@
+- name: Create /home/kali/.kp directory
+  ansible.builtin.file:
+    path: /home/kali/.kp
+    state: directory
+    mode: '0755'
+  become_user: kali
+  become: true
+
+- name: Copy /home/kali/.kp/config.ini
+  copy:
+    src: home/kali/.kp/config.ini
+    dest: /home/kali/.kp/config.ini
+    owner: kali
+    group: kali
+    mode: '0644'
+  become_user: kali
+  become: true
