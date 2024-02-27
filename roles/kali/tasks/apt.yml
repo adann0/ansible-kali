@@ -79,4 +79,5 @@
     - wine32
     - kali-grant-root
     - snmp-mibs-downloader
+    - joomscan
     update_cache: yes
