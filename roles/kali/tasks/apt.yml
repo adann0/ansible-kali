@@ -80,4 +80,5 @@
     - kali-grant-root
     - snmp-mibs-downloader
     - joomscan
+    - gdb
     update_cache: yes

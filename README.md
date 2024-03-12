@@ -22,7 +22,7 @@ Ansible role to setup Kali Linux.
 7. Run :
 
 ```
-$ ./kali.yml --ask-become-pass
+$ ./kali.yml --ask-become-pass [--ask-pass]
 ```
 
 ## Issues

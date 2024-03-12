@@ -1,0 +1,14 @@
+- name: Clone gdb-peda repo
+  ansible.builtin.git:
+    repo: https://github.com/longld/peda.git
+    dest: /home/kali/peda
+  become_user: kali
+  become: yes
+
+- name: Set .gdbinit file
+  copy:
+    src: home/kali/.gdbinit
+    dest: /home/kali/.gdbinit
+    owner: kali
+    group: kali
+    mode: '0644'

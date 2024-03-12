@@ -6,6 +6,7 @@
 - include_tasks: pip2.yml
 - include_tasks: pip3.yml
 - include_tasks: kpcli.yml
+- include_tasks: peda.yml
 - include_tasks: fail2ban.yml
 - include_tasks: snmp.yml
 - include_tasks: scripts.yml
