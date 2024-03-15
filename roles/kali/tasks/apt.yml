@@ -81,4 +81,6 @@
     - snmp-mibs-downloader
     - joomscan
     - gdb
+    - windows-binaries
+    - powersploit
     update_cache: yes
