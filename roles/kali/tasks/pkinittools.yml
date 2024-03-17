@@ -1,0 +1,22 @@
+
+- name: Check if PKINITtools repo was already cloned
+  stat:
+    path: /opt/PKINITtools
+  register: pkinit_repo
+
+- name: Git clone PKINITtools
+  ansible.builtin.git:
+    repo: 'https://github.com/dirkjanm/PKINITtools'
+    dest: /opt/PKINITtools
+    clone: yes
+    update: no
+  when: not pkinit_repo.stat.exists
+
+- name: Chmod +x Python scripts
+  file:
+    dest: '/opt/PKINITtools/{{ item }}'
+    mode: a+x
+  with_items:
+    - gettgtpkinit.py
+    - getnthash.py
+    - gets4uticket.py
