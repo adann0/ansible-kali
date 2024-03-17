@@ -83,4 +83,5 @@
     - gdb
     - windows-binaries
     - powersploit
+    - libssh-dev
     update_cache: yes
