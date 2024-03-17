@@ -95,7 +95,6 @@
     - libmemcached-dev
     - libgpg-error-dev
     - libgcrypt20-dev
-    - libmysql-dev
     - default-libmysqlclient-dev
     - freerdp2-dev
     - libsmbclient-dev
