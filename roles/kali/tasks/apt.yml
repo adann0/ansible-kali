@@ -84,4 +84,19 @@
     - windows-binaries
     - powersploit
     - libssh-dev
+    - libssl-dev
+    - libidn11-dev
+    - libpcre3-dev
+    - libgtk2.0-dev
+    - libmariadb-dev
+    - libpq-dev
+    - libsvn-dev
+    - firebird-dev
+    - libmemcached-dev
+    - libgpg-error-dev
+    - libgcrypt20-dev
+    - libmysql-dev
+    - default-libmysqlclient-dev
+    - freerdp2-dev
+    - libsmbclient-dev
     update_cache: yes
