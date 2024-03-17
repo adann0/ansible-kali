@@ -98,4 +98,6 @@
     - default-libmysqlclient-dev
     - freerdp2-dev
     - libsmbclient-dev
+    - gcc
+    - heimdal-dev
     update_cache: yes

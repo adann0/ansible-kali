@@ -13,6 +13,7 @@
       - droopescan
       - git+https://github.com/adann0/multi_server
       - minikerberos
+      - bloodyAD
     virtualenv: /home/kali/venv3
     virtualenv_python: python3
   become_user: kali
