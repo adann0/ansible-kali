@@ -1,0 +1,25 @@
+
+- name: Check if hydra repo was already cloned
+  stat:
+    path: /opt/thc-hydra
+  register: hydra_repo
+
+- name: Git clone hydra
+  ansible.builtin.git:
+    repo: 'https://github.com/vanhauser-thc/thc-hydra.git'
+    dest: /opt/thc-hydra
+    clone: yes
+    update: no
+  when: not hydra_repo.stat.exists
+
+- name: Check if hydra is already compiled
+  stat:
+    path: /usr/local/bin/hydra
+  register: hydra_compiled
+
+- name: Compile hydra
+  block:
+    - command: chdir=/opt/thc-hydra ./configure
+    - command: chdir=/opt/thc-hydra make
+    - command: chdir=/opt/thc-hydra make install
+  when: not hydra_compiled.stat.exists

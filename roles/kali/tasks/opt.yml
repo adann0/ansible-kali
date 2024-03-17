@@ -1,0 +1,7 @@
+- name: 'Set /opt owner on `root:kali`'
+  ansible.builtin.file:
+    path: /opt
+    state: directory
+    owner: root
+    group: kali
+    mode: '0770'

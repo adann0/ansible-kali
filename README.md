@@ -9,6 +9,7 @@ Ansible role to setup Kali Linux.
 - fail2ban on openssh server
 - python2/python3 with pip and venvs
 - custom .zshrc
+- hydra compiled from source
 - all the tools for the OSCP (gobuster, bloodhound, shellter, impacket, wsgidav, ...)
 
 ## Install
