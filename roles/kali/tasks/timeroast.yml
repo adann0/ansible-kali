@@ -1,0 +1,20 @@
+
+- name: Check if timeroast repo was already cloned
+  stat:
+    path: /opt/timeroast
+  register: timeroast_repo
+
+- name: Git clone timeroast
+  ansible.builtin.git:
+    repo: 'https://github.com/SecuraBV/Timeroast'
+    dest: /opt/timeroast
+    clone: yes
+    update: no
+  when: not timeroast_repo.stat.exists
+
+- name: Chmod +x Python scripts
+  file:
+    dest: '/opt/timeroast/{{ item }}'
+    mode: a+x
+  with_items:
+    - timeroast.py

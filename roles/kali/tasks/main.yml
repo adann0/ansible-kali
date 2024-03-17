@@ -10,6 +10,7 @@
 - include_tasks: peda.yml
 - include_tasks: hydra.yml
 - include_tasks: pkinittools.yml
+- include_tasks: timeroast.yml
 - include_tasks: fail2ban.yml
 - include_tasks: snmp.yml
 - include_tasks: scripts.yml
