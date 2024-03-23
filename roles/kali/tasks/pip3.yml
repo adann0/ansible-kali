@@ -3,7 +3,6 @@
     name:
       - requests
       - mysql-connector
-      - dirhunt
       - wsgidav
       - cheroot
       - paramiko
@@ -15,6 +14,15 @@
       - minikerberos
       - bloodyAD
     virtualenv: /home/kali/venv3
+    virtualenv_python: python3
+  become_user: kali
+  become: yes
+
+- name: Create Python3 venv & Install dirhunt
+  pip:
+    name:
+      - dirhunt
+    virtualenv: /home/kali/venv3_dirhunt
     virtualenv_python: python3
   become_user: kali
   become: yes
